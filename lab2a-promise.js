@@ -4,20 +4,28 @@ function flip() {
     let p = new Promise(function (resolve, reject) {
         if (Math.random() > 0.5) resolve();
         else reject();
-    });
+    }).then(
+      () => {console.log("Heads!")},
+      () => {console.log("Tails!")}
+  );
     return p;
 }
 
-//// Add code here that will "flip" the coin ten times and write the 
+//// Add code here that will "flip" the coin ten times and write the
 //// result to the console (e.g. "Heads" or "Tails" for each flip).
 
-
-
+// console.log(flip())
+for (let i = 0; i < 10; i++) {
+  flip()
+}
 
 ///// Problem 2 - More fun...
 
 function countBig(bignum) {
     // Add code here that returns a Promise that will resolve after it has counted to bignum
+    return new Promise((resolve, reject) => {
+      setTimeout(resolve(), bignum);
+    });
 }
 
 
